@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeepWorkLog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="px-8 py-4 border-b border-gray-300 bg-gray-100">
+      <p class="text-slate-700 font-light">DeepWorkLog</p>
+    </div>
+
+    <main class="container mx-auto mt-12 mb-28 px-5 flex max-w-[60ch] flex-col space-y-12">
+      <%= turbo_stream_from "stats_stream" %>
+      
+      <%= render partial: "stats" %>
+
+      <%= yield %>
+
+      <%= render partial: "log_entries/all", locals: { log_entries: @log_entries } %>
+    </main>
+  </body>
+</html>

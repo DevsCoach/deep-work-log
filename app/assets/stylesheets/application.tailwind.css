@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes flashRed {
+  0% {
+    background-color: pink;
+  }
+  100% {
+    background-color: initial;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+@keyframes snapOpen {
+  from {
+    max-height: 0;
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    max-height: 60ch;
+    opacity: 1;
+    height: 35ch;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body * {
+  /* animation: flashRed 0.5s; */
+}
+
+.snap-open {
+  height: 0;
+  animation: snapOpen 0.25s ease-out forwards;
+  overflow: hidden;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+@layer components {
+  .skeleton {
+    @apply rounded bg-gray-100 w-full;
+    animation: pulse 2s cubic-bezier(0.27, 0.57, 0.93, 0.59) infinite;
+  }
+}
+
+@layer base {
+  body {
+  }
+
+  textarea {
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+
+    border-left: 5px solid black;
+  }
+
+  textarea:focus,
+  textarea:active {
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    box-shadow: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+
+    border-left: 5px solid black;
+  }
+}

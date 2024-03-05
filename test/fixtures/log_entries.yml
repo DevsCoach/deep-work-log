@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: log_entries
+#
+#  id         :integer          not null, primary key
+#  ends_at    :datetime
+#  content    :string
+#  location   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  ends_at: 2024-03-02 11:22:23
+  content: MyString
+  location: MyString
+
+two:
+  ends_at: 2024-03-02 11:22:23
+  content: MyString
+  location: MyString

@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "active_entry" do %>
+  <div
+    class="flex items-center justify-center"
+    data-controller="loading"
+  >
+    <%= form_with model: @log_entry, data: {
+      "action" => "submit->loading#swapToLoading",
+      "loading-target" => "swap"
+    },
+     class: "w-full" do |f| %>
+      <%= f.submit "Start 90min session",
+       data: { "turbo-action" => "advance" },
+       class: "border w-full px-4 py-4 rounded border-gray-800 bg-gray-800 text-white shadow hover:shadow-lg cursor-pointer" %>
+    <% end %>
+  </div>
+<% end %>

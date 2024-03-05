@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "active_entry" do %>
+  <div
+    id="<%= dom_id(@log_entry, :edit) %>"
+    data-controller="loading auto-save"
+    data-auto-save-url-value="<%= log_entry_path(@log_entry) %>"
+    class="relative w-full">
+
+    <div data-loading-target="swap"  class="relative flex flex-col space-y-4 w-full">
+    <%= render partial: "remaining",
+               locals: { log_entry: @log_entry } %>
+
+    <%= form_with model: @log_entry, method: :post, url: end_log_entry_path(@log_entry), class: "w-full", data: { "action" => "loading#swapToLoading" } do |f| %>
+      <%= f.text_area :content,
+       class: "w-[55ch] mb-8 snap-open",
+       data: { "action" => "keydown.space->auto-save#save" },
+       autofocus: true %>
+      <%= f.submit "End session", class: "w-full px-2 py-4 rounded border border-gray-800", data: {
+        "turbo-action" => "advance",
+      } %>
+    <% end %>
+    </div>
+  </div>
+<% end %>

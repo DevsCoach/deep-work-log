@@ -1,0 +1,8 @@
+<div class="absolute top-[1rem] right-[1rem] text-sm z-10 bg-gray-100 px-2 py-2 rounded"
+  data-controller="countdown"
+  data-countdown-countdown-to-value="<%= log_entry.ends_at %>"
+>
+  <span
+    data-countdown-target="clock"
+  ><%= human_duration(log_entry.ends_at - Time.current) %></span> remaining
+</div>

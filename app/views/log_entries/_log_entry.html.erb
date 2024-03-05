@@ -1,0 +1,13 @@
+<div id="<% dom_id log_entry %>" class="fade-in">
+  <div class="relative flex flex-col space-y-2">
+    <p class="absolute z-10 top-[0rem] left-[1rem] bg-white text-xs text-gray-600 px-2">
+      <%= log_entry.created_at.strftime('%Y-%m-%d %H:%M') %> (<%= time_ago_in_words(log_entry.created_at) %> ago)
+    </p>
+    <p class="absolute z-10 top-[1rem] right-[1rem] bg-green-100 text-xs text-green-600 rounded px-2 py-1">
+      <%= human_duration(log_entry.duration) %>
+    </p>
+    <div class="border p-12 border-gray-600 rounded text-gray-500 shadow">
+      <%= log_entry.content&.gsub(/\r?\n/, "<br>")&.html_safe %>
+    </div>
+  </div>
+</div>
