@@ -1,24 +1,11 @@
-# README
+# Deep Work Log
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple example of how turbo and stimulus work in Rails 7.
 
-Things you may want to cover:
+Check out the video tutorial on [DevsCoach YouTube Channel](https://www.youtube.com/@devscoach).
 
-* Ruby version
+## To run
 
-* System dependencies
+(Needs redis to run)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`./bin/dev`
